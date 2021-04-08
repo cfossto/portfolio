@@ -65,7 +65,7 @@ Event.objects.create(
 
 # READ one object
 '''
-Event.objects.get(id=1)
+Event.objects.get(id="1")
 Event.objects.get(name="Xmas barbie")
 
 osv..
