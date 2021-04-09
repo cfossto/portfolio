@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from datetime import date
 import calendar
 from calendar import HTMLCalendar
+from .forms import VenueForm
 
 # Create your views here.
 
@@ -26,3 +28,20 @@ def index(request,year=date.today().year, month=date.today().month):
     #return HttpResponse("<h1>%s</h1>" % title)
     return render(request,'events/calendar_base.html', { 'title':title,'cal':cal,'announcements':announcements}) # render out req to template, with template args
 
+
+def add_venue(request):
+    submitted = False
+    if request.method == 'POST':
+        form = VenueForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/events/add_venue/?submitted=True')
+    else:
+        form = VenueForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request,
+    'events/add_venue.html',
+    {
+        'form':form,'submitted':submitted
+    })
