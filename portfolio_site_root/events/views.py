@@ -27,7 +27,7 @@ def index(request,year=date.today().year, month=date.today().month):
     ]
     #return HttpResponse("<h1>%s</h1>" % title)
     return render(request,'events/calendar_base.html', { 'title':title,'cal':cal,'announcements':announcements}) # render out req to template, with template args
-
+    
 
 def add_venue(request):
     submitted = False

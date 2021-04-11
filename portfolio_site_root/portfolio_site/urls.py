@@ -20,12 +20,16 @@ from . import contact
 
 
 urlpatterns = [
+
+    path('',include('main_app.urls')),
+
+
+    # --------------------------- ----------------------#
     # Admin Url
     path('admin/', admin.site.urls),
 
     # Event URL, including all events/urls.py
-    path('events/',include('events.urls')),
-    
+    path('events/',include('events.urls')),    
     # Password Reset URLs
     path(
         'admin/password_reset/',
