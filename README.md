@@ -19,4 +19,4 @@ In development right now: Backend
 * Machine learning
 * Cookies/Session storage
 
-This project is projected to be launched in May of 2021. It will then be gradually added upon.
+This project is projected to be launched in summer of 2021. It will then be gradually added upon.
